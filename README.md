@@ -1,4 +1,10 @@
 # 🌊 3D Jellyfish Animation - React Three Fiber
+by Abhinav Singh 
+
+Twitter(X) : https://x.com/the_grt_pretndr 
+
+<img width="1920" height="1013" alt="Screenshot (49)" src="https://github.com/user-attachments/assets/5d7565f1-1888-4042-a589-826fff6e89d7" />
+
 
 An immersive 3D web experience featuring animated jellyfish swimming in a circular orbit around your content. This project demonstrates advanced layering techniques with React Three Fiber, creating a captivating background animation that interacts with HTML content.
 
@@ -25,7 +31,7 @@ An immersive 3D web experience featuring animated jellyfish swimming in a circul
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/AbhinavSingh100/Jellyfish-animation-3d-react.git
 cd jellyfish-animation-3d-react
 ```
 
