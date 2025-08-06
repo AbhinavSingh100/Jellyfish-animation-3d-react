@@ -1,0 +1,249 @@
+/* Hero Wrapper - Main Container */
+.hero-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* Canvas for objects BEHIND the text */
+.canvas-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; 
+}
+
+.portfolio {
+  z-index: 2;
+  position: absolute;
+  
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* HTML Content Layer in the MIDDLE */
+.hero-content-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Sits above the back canvas */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  /* Let mouse events pass through the container but not the content inside */
+  pointer-events: auto; 
+}
+
+/* Canvas for objects IN FRONT of the text */
+.canvas-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3; /* Sits on top of everything */
+  /* This canvas must NOT block mouse events from reaching the HTML */
+  pointer-events: none;
+}
+
+
+/* --- YOUR EXISTING STYLES --- */
+/* You can keep most of your other styles, but ensure the content re-enables pointer events */
+
+/* Hero Content Styles */
+.hero-content {
+  max-width: 600px;
+  text-align: center;
+  animation: fadeInUp 1s ease-out;
+  pointer-events: auto; /* Re-enable pointer events for the content block */
+}
+
+/* Badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  animation: pulse 2s infinite;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background: #00ff88;
+  border-radius: 50%;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Title */
+.hero-title {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.title-line {
+  display: block;
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.title-line:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.title-line:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Description */
+.hero-description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3rem;
+  animation: fadeIn 1s ease-out 0.6s both;
+}
+
+.highlight {
+  color: #00ff88;
+  font-weight: 600;
+}
+
+/* Action Buttons */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 4rem;
+  animation: fadeIn 1s ease-out 1s both;
+}
+
+.btn-primary, .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Animations (Keep your existing animations) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(0, 255, 136, 0);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #00ff88;
+  }
+  to {
+    box-shadow: 0 0 20px #00ff88;
+  }
+}
+
+/* Responsive Design (Keep your existing responsive styles) */
+@media (max-width: 768px) {
+  .hero-container {
+    padding: 1rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+  }
+}
